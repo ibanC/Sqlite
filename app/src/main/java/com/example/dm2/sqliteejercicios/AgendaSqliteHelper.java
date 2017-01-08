@@ -10,7 +10,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class AgendaSqliteHelper extends SQLiteOpenHelper{
 
     //sentencia sql para creare la tabla de usuarios
-    String sqlCreate="Create Table usuarios (idUsuario INTEGER PRIMARY KEY AUTOINCREMENT,nombre TEXT,email TEXT)";
+    String sqlCreate="Create Table usuarios (idUsuario INTEGER PRIMARY KEY AUTOINCREMENT,nombre TEXT,email TEXT,numero TEXT)";
     public AgendaSqliteHelper(Context contexto, String nombre, SQLiteDatabase.CursorFactory factory,int version)
     {
         super(contexto,nombre,factory,version);
@@ -24,7 +24,7 @@ public class AgendaSqliteHelper extends SQLiteOpenHelper{
     @Override
     public void onUpgrade(SQLiteDatabase db, int i, int i1) {
         //se elimina la version anterior de la tabla
-        db.execSQL("DROP TABLE IF EXISTS Usuarios");
+        db.execSQL("DROP TABLE IF EXISTS usuarios");
 
         //se crea la nueva version de la tabla
         db.execSQL(sqlCreate);
